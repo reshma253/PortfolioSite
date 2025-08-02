@@ -296,7 +296,15 @@ export default function SinglePagePortfolio() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="gradient-bg pt-16 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center relative">
+      <section id="home" className="pt-16 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center relative overflow-hidden">
+        {/* Background with city skyline */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=1200')"
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/70 to-accent/60"></div>
         <div className="hero-pattern absolute inset-0"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -355,8 +363,16 @@ export default function SinglePagePortfolio() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 section-divider">
-        <div className="max-w-6xl mx-auto">
+      <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 section-divider relative overflow-hidden">
+        {/* Background with data center/servers */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=1200')"
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/80 to-white/60"></div>
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-3xl font-poppins font-bold mb-4">What I Do</h2>
             <p className="text-lg text-muted-foreground">
@@ -390,8 +406,16 @@ export default function SinglePagePortfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-muted/20 to-accent/10 section-divider">
-        <div className="max-w-6xl mx-auto">
+      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 section-divider relative overflow-hidden">
+        {/* Background with modern office/workspace */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=1200')"
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-muted/20 to-accent/10"></div>
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-3xl font-poppins font-bold mb-4">About Me</h2>
             <p className="text-lg text-muted-foreground">
@@ -504,8 +528,16 @@ export default function SinglePagePortfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 section-divider">
-        <div className="max-w-7xl mx-auto">
+      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 section-divider relative overflow-hidden">
+        {/* Background with technology/coding theme */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=1200')"
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-transparent"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-3xl font-poppins font-bold mb-4">My Projects</h2>
             <p className="text-lg text-muted-foreground">
@@ -551,8 +583,16 @@ export default function SinglePagePortfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 to-accent/5 section-divider">
-        <div className="max-w-4xl mx-auto">
+      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 section-divider relative overflow-hidden">
+        {/* Background with modern city night */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-8"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1548630826-2ec01c693ded?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=1200')"
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10"></div>
+        <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-3xl font-poppins font-bold mb-4">Get In Touch</h2>
             <p className="text-lg text-muted-foreground">
