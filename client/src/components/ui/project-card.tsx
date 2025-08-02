@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
@@ -22,53 +23,86 @@ export function ProjectCard({
   category,
 }: ProjectCardProps) {
   return (
-    <Card className="project-card bg-white/60 backdrop-blur-sm shadow-xl overflow-hidden group border-0" data-category={category}>
+    <motion.div
+      className="enhanced-project-card gradient-card rounded-xl overflow-hidden group border-0"
+      data-category={category}
+      whileHover={{ y: -12, rotateX: 5 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+    >
       <div className="relative overflow-hidden">
-        <img
+        <motion.img
           src={image}
           alt={title}
-          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+          className="project-image w-full h-48 object-cover"
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.4 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <motion.div 
+          className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        />
+        <motion.div 
+          className="absolute top-4 right-4"
+          initial={{ opacity: 0, scale: 0 }}
+          whileHover={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+        >
           <div className="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
-        </div>
+        </motion.div>
       </div>
-      <CardContent className="p-6 relative">
-        <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-200">{title}</h3>
-        <p className="text-muted-foreground mb-4 leading-relaxed">{description}</p>
+      <div className="p-6 relative z-10">
+        <motion.h3 
+          className="text-xl font-poppins font-semibold mb-2 group-hover:text-primary transition-colors duration-200"
+          whileHover={{ scale: 1.05 }}
+        >
+          {title}
+        </motion.h3>
+        <p className="text-muted-foreground mb-4 leading-relaxed font-inter">{description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech, index) => (
-            <Badge key={index} variant="secondary" className="text-xs bg-primary/10 text-primary border-0">
-              {tech}
-            </Badge>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Badge variant="secondary" className="text-xs bg-gradient-to-r from-primary/10 to-accent/10 text-primary border-0 font-inter">
+                {tech}
+              </Badge>
+            </motion.div>
           ))}
         </div>
         <div className="flex gap-4">
           {liveUrl && (
-            <a
+            <motion.a
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary hover:text-accent transition-colors duration-200 font-medium flex items-center gap-1 hover:scale-105 transform transition-transform"
+              className="text-primary hover:text-accent transition-colors duration-200 font-medium flex items-center gap-1 font-inter"
+              whileHover={{ scale: 1.05, x: 5 }}
+              whileTap={{ scale: 0.95 }}
             >
               Live Demo
               <ExternalLink className="w-4 h-4" />
-            </a>
+            </motion.a>
           )}
           {githubUrl && (
-            <a
+            <motion.a
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-1 hover:scale-105 transform transition-transform"
+              className="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-1 font-inter"
+              whileHover={{ scale: 1.05, x: 5 }}
+              whileTap={{ scale: 0.95 }}
             >
               GitHub
               <Github className="w-4 h-4" />
-            </a>
+            </motion.a>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </motion.div>
   );
 }

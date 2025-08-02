@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -309,38 +310,56 @@ export default function SinglePagePortfolio() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left" data-aos="fade-right">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-poppins font-bold text-white mb-6">
+              <motion.h1 
+                className="text-4xl sm:text-5xl lg:text-6xl font-poppins font-bold text-white mb-6"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+              >
                 Creative <span className="text-accent">Developer</span>
                 <br />& Designer
-              </h1>
-              <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto lg:mx-0">
+              </motion.h1>
+              <motion.p 
+                className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto lg:mx-0"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
                 I craft exceptional digital experiences through innovative design and cutting-edge development.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-                <Button 
-                  size="lg" 
-                  className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border border-white/30"
+              </motion.p>
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.5 }}
+              >
+                <motion.button
+                  className="gradient-button px-8 py-3 text-white rounded-lg font-semibold text-lg"
                   onClick={() => scrollToSection('projects')}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   View My Work
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-white/50 text-white hover:bg-white/10 backdrop-blur-sm"
+                </motion.button>
+                <motion.button
+                  className="px-8 py-3 border-2 border-white/50 text-white hover:bg-white/10 backdrop-blur-sm rounded-lg font-semibold text-lg transition-all duration-300"
                   onClick={() => scrollToSection('contact')}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   Get In Touch
-                </Button>
-                <a
+                </motion.button>
+                <motion.a
                   href="/resume.pdf"
                   download="Alex_Johnson_Resume.pdf"
-                  className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-md hover:bg-accent/30 transition-colors duration-200"
+                  className="inline-flex items-center justify-center px-6 py-3 text-white bg-gradient-to-r from-accent/60 to-accent/80 backdrop-blur-sm border border-accent/30 rounded-lg hover:from-accent/70 hover:to-accent/90 transition-all duration-300 font-semibold"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Download Resume
-                </a>
-              </div>
+                </motion.a>
+              </motion.div>
               <div className="animate-bounce lg:hidden">
                 <ChevronDown 
                   className="w-8 h-8 text-white mx-auto cursor-pointer" 
@@ -374,7 +393,14 @@ export default function SinglePagePortfolio() {
         <div className="absolute inset-0 bg-gradient-to-br from-white/80 to-white/60"></div>
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl font-poppins font-bold mb-4">What I Do</h2>
+            <motion.h2 
+              className="text-3xl font-poppins font-bold mb-4"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              What I Do
+            </motion.h2>
             <p className="text-lg text-muted-foreground">
               Specialized in creating modern, responsive web applications
             </p>
@@ -384,21 +410,27 @@ export default function SinglePagePortfolio() {
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <Card
+                <motion.div
                   key={index}
-                  className="text-center p-6 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/50 backdrop-blur-sm border-0"
-                  data-aos="fade-up"
-                  data-aos-delay={service.delay}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="gradient-card rounded-xl p-6 text-center"
                 >
-                  <CardContent className="p-6">
-                    <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6 relative overflow-hidden">
+                  <div className="relative z-10">
+                    <motion.div 
+                      className="w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6 relative overflow-hidden"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10"></div>
                       <Icon className="w-10 h-10 text-primary relative z-10" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                    </motion.div>
+                    <h3 className="text-xl font-poppins font-semibold mb-2">{service.title}</h3>
                     <p className="text-muted-foreground">{service.description}</p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </motion.div>
               );
             })}
           </div>
@@ -417,7 +449,14 @@ export default function SinglePagePortfolio() {
         <div className="absolute inset-0 bg-gradient-to-br from-muted/20 to-accent/10"></div>
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl font-poppins font-bold mb-4">About Me</h2>
+            <motion.h2 
+              className="text-3xl font-poppins font-bold mb-4"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              About Me
+            </motion.h2>
             <p className="text-lg text-muted-foreground">
               Get to know the person behind the code
             </p>
@@ -539,7 +578,14 @@ export default function SinglePagePortfolio() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-transparent"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl font-poppins font-bold mb-4">My Projects</h2>
+            <motion.h2 
+              className="text-3xl font-poppins font-bold mb-4"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              My Projects
+            </motion.h2>
             <p className="text-lg text-muted-foreground">
               A showcase of my recent work and creative solutions
             </p>
@@ -551,19 +597,23 @@ export default function SinglePagePortfolio() {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            {filters.map((filter) => (
-              <Button
+            {filters.map((filter, index) => (
+              <motion.button
                 key={filter.id}
-                variant={activeFilter === filter.id ? "default" : "outline"}
                 onClick={() => handleFilterChange(filter.id)}
-                className={`transition-all duration-200 ${
+                className={`px-6 py-3 rounded-lg font-semibold font-inter transition-all duration-300 ${
                   activeFilter === filter.id 
-                    ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg" 
-                    : "bg-white/60 border-primary/20 hover:bg-primary/10"
+                    ? "gradient-button text-white shadow-lg" 
+                    : "bg-white/60 border border-primary/20 hover:bg-white/80 text-primary"
                 }`}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.3 }}
               >
                 {filter.label}
-              </Button>
+              </motion.button>
             ))}
           </div>
 
@@ -594,7 +644,14 @@ export default function SinglePagePortfolio() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10"></div>
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl font-poppins font-bold mb-4">Get In Touch</h2>
+            <motion.h2 
+              className="text-3xl font-poppins font-bold mb-4"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              Get In Touch
+            </motion.h2>
             <p className="text-lg text-muted-foreground">
               Let's discuss your next project or just say hello
             </p>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -62,7 +64,10 @@
   }
 
   body {
-    @apply font-inter antialiased bg-background text-foreground;
+    @apply font-inter antialiased;
+    background: linear-gradient(135deg, hsl(210, 40%, 98%) 0%, hsl(200, 100%, 97%) 50%, hsl(45, 100%, 96%) 100%);
+    background-attachment: fixed;
+    color: hsl(215, 25%, 27%);
   }
 
   section {
@@ -222,6 +227,80 @@
     background: linear-gradient(90deg, transparent, hsl(200, 85%, 75%), hsl(45, 86%, 75%), transparent);
     mask: linear-gradient(90deg, transparent 0%, black 25%, black 75%, transparent 100%);
     -webkit-mask: linear-gradient(90deg, transparent 0%, black 25%, black 75%, transparent 100%);
+  }
+
+  /* Enhanced Gradient Cards */
+  .gradient-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .gradient-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.6) 100%);
+  }
+
+  /* Enhanced Buttons */
+  .gradient-button {
+    background: linear-gradient(135deg, hsl(200, 85%, 65%) 0%, hsl(200, 90%, 55%) 50%, hsl(45, 86%, 75%) 100%);
+    background-size: 200% 200%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gradient-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+  }
+
+  .gradient-button:hover {
+    background-position: 100% 0;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+  }
+
+  .gradient-button:hover::before {
+    left: 100%;
+  }
+
+  /* Enhanced Project Card */
+  .enhanced-project-card:hover {
+    transform: translateY(-12px) rotateX(5deg);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  }
+
+  .enhanced-project-card:hover .project-image {
+    transform: scale(1.1);
+  }
+
+  .project-image {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
   }
 }
 
