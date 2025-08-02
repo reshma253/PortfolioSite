@@ -57,8 +57,16 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply font-inter antialiased bg-background text-foreground;
+  }
+
+  section {
+    scroll-margin-top: 4rem;
   }
 }
 
