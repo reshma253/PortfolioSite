@@ -102,7 +102,7 @@ export default function SinglePagePortfolio() {
       description:
         "Modern admin dashboard with real-time analytics and inventory management built with React and D3.js.",
       image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
       technologies: ["React", "Node.js", "MongoDB"],
       liveUrl: "#",
       githubUrl: "#",
@@ -113,7 +113,7 @@ export default function SinglePagePortfolio() {
       description:
         "Cross-platform mobile app for workout tracking with social features and progress analytics.",
       image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
       technologies: ["React Native", "Firebase", "Redux"],
       liveUrl: "#",
       githubUrl: "#",
@@ -124,7 +124,7 @@ export default function SinglePagePortfolio() {
       description:
         "Complete brand identity redesign including logo, color palette, and design guidelines for a tech startup.",
       image:
-        "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+        "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
       technologies: ["Figma", "Illustrator", "Branding"],
       liveUrl: "#",
       githubUrl: "#",
@@ -135,7 +135,7 @@ export default function SinglePagePortfolio() {
       description:
         "Full-featured social platform with real-time messaging, posts, and user interactions.",
       image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
       technologies: ["Vue.js", "Socket.io", "PostgreSQL"],
       liveUrl: "#",
       githubUrl: "#",
@@ -146,7 +146,7 @@ export default function SinglePagePortfolio() {
       description:
         "Intelligent task management tool with AI-powered scheduling and productivity insights.",
       image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+        "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
       technologies: ["Next.js", "OpenAI", "TypeScript"],
       liveUrl: "#",
       githubUrl: "#",
@@ -157,7 +157,7 @@ export default function SinglePagePortfolio() {
       description:
         "Complete UX redesign for a mobile banking app focusing on accessibility and user experience.",
       image:
-        "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+        "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
       technologies: ["Figma", "User Research", "Prototyping"],
       liveUrl: "#",
       githubUrl: "#",
@@ -266,45 +266,58 @@ export default function SinglePagePortfolio() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="gradient-bg pt-16 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center" data-aos="fade-up">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-poppins font-bold text-white mb-6">
-              Creative <span className="text-accent">Developer</span>
-              <br />& Designer
-            </h1>
-            <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-              I craft exceptional digital experiences through innovative design and cutting-edge development.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button 
-                size="lg" 
-                className="bg-accent hover:bg-accent/90 text-accent-foreground"
-                onClick={() => scrollToSection('projects')}
-              >
-                View My Work
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-white text-white hover:bg-white hover:text-foreground"
-                onClick={() => scrollToSection('contact')}
-              >
-                Get In Touch
-              </Button>
+      <section id="home" className="gradient-bg pt-16 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center relative">
+        <div className="hero-pattern absolute inset-0"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left" data-aos="fade-right">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-poppins font-bold text-white mb-6">
+                Creative <span className="text-accent">Developer</span>
+                <br />& Designer
+              </h1>
+              <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto lg:mx-0">
+                I craft exceptional digital experiences through innovative design and cutting-edge development.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+                <Button 
+                  size="lg" 
+                  className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border border-white/30"
+                  onClick={() => scrollToSection('projects')}
+                >
+                  View My Work
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-white/50 text-white hover:bg-white/10 backdrop-blur-sm"
+                  onClick={() => scrollToSection('contact')}
+                >
+                  Get In Touch
+                </Button>
+              </div>
+              <div className="animate-bounce lg:hidden">
+                <ChevronDown 
+                  className="w-8 h-8 text-white mx-auto cursor-pointer" 
+                  onClick={() => scrollToSection('services')}
+                />
+              </div>
             </div>
-            <div className="animate-bounce">
-              <ChevronDown 
-                className="w-8 h-8 text-white mx-auto cursor-pointer" 
-                onClick={() => scrollToSection('services')}
-              />
+            <div className="hidden lg:block" data-aos="fade-left">
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800"
+                  alt="Professional headshot"
+                  className="rounded-full w-80 h-80 object-cover mx-auto masked-image shadow-2xl"
+                />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/20 to-transparent"></div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 section-divider">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-3xl font-poppins font-bold mb-4">What I Do</h2>
@@ -319,13 +332,14 @@ export default function SinglePagePortfolio() {
               return (
                 <Card
                   key={index}
-                  className="text-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="text-center p-6 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/50 backdrop-blur-sm border-0"
                   data-aos="fade-up"
                   data-aos-delay={service.delay}
                 >
                   <CardContent className="p-6">
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-8 h-8 text-primary" />
+                    <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10"></div>
+                      <Icon className="w-10 h-10 text-primary relative z-10" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                     <p className="text-muted-foreground">{service.description}</p>
@@ -338,7 +352,7 @@ export default function SinglePagePortfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-muted/20 to-accent/10 section-divider">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-3xl font-poppins font-bold mb-4">About Me</h2>
@@ -348,28 +362,38 @@ export default function SinglePagePortfolio() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div data-aos="fade-right">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800"
-                alt="Professional headshot"
-                className="rounded-xl shadow-lg w-full max-w-md mx-auto"
-              />
+            <div data-aos="fade-right" className="relative">
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000"
+                  alt="Professional workspace"
+                  className="rounded-2xl shadow-2xl w-full max-w-md mx-auto object-cover h-96"
+                />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/20 via-transparent to-accent/20"></div>
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200"
+                    alt="Alex Johnson"
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+              </div>
             </div>
             <div data-aos="fade-left">
               <h3 className="text-2xl font-semibold mb-6">Hi, I'm Alex Johnson</h3>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-muted-foreground mb-6 leading-relaxed">
                 A passionate full-stack developer with over 5 years of experience creating digital
                 solutions that make a difference. I specialize in modern web technologies and have a
                 keen eye for design that enhances user experience.
               </p>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-muted-foreground mb-6 leading-relaxed">
                 When I'm not coding, you'll find me exploring new design trends, contributing to
                 open-source projects, or hiking in the great outdoors. I believe in continuous
                 learning and staying at the forefront of technology.
               </p>
               <div className="flex flex-wrap gap-2">
                 {technologies.map((tech, index) => (
-                  <Badge key={index} variant="secondary">
+                  <Badge key={index} variant="secondary" className="bg-white/60 text-foreground border-0">
                     {tech}
                   </Badge>
                 ))}
@@ -426,7 +450,7 @@ export default function SinglePagePortfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 section-divider">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-3xl font-poppins font-bold mb-4">My Projects</h2>
@@ -446,7 +470,11 @@ export default function SinglePagePortfolio() {
                 key={filter.id}
                 variant={activeFilter === filter.id ? "default" : "outline"}
                 onClick={() => handleFilterChange(filter.id)}
-                className="transition-all duration-200"
+                className={`transition-all duration-200 ${
+                  activeFilter === filter.id 
+                    ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg" 
+                    : "bg-white/60 border-primary/20 hover:bg-primary/10"
+                }`}
               >
                 {filter.label}
               </Button>
@@ -469,7 +497,7 @@ export default function SinglePagePortfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 to-accent/5 section-divider">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-3xl font-poppins font-bold mb-4">Get In Touch</h2>
@@ -527,11 +555,11 @@ export default function SinglePagePortfolio() {
             </div>
 
             {/* Contact Form */}
-            <Card data-aos="fade-left">
-              <CardContent className="p-6">
+            <Card data-aos="fade-left" className="bg-white/70 backdrop-blur-sm border-0 shadow-2xl">
+              <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <Label htmlFor="name">Full Name</Label>
+                    <Label htmlFor="name" className="text-foreground font-medium">Full Name</Label>
                     <Input
                       id="name"
                       name="name"
@@ -540,12 +568,12 @@ export default function SinglePagePortfolio() {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Your full name"
-                      className="mt-1"
+                      className="mt-2 bg-white/50 border-primary/20 focus:border-primary"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="email">Email Address</Label>
+                    <Label htmlFor="email" className="text-foreground font-medium">Email Address</Label>
                     <Input
                       id="email"
                       name="email"
@@ -554,12 +582,12 @@ export default function SinglePagePortfolio() {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="your.email@example.com"
-                      className="mt-1"
+                      className="mt-2 bg-white/50 border-primary/20 focus:border-primary"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="subject">Subject</Label>
+                    <Label htmlFor="subject" className="text-foreground font-medium">Subject</Label>
                     <Input
                       id="subject"
                       name="subject"
@@ -568,12 +596,12 @@ export default function SinglePagePortfolio() {
                       value={formData.subject}
                       onChange={handleInputChange}
                       placeholder="Project inquiry"
-                      className="mt-1"
+                      className="mt-2 bg-white/50 border-primary/20 focus:border-primary"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message" className="text-foreground font-medium">Message</Label>
                     <Textarea
                       id="message"
                       name="message"
@@ -582,13 +610,13 @@ export default function SinglePagePortfolio() {
                       onChange={handleInputChange}
                       placeholder="Tell me about your project..."
                       rows={5}
-                      className="mt-1 resize-none"
+                      className="mt-2 resize-none bg-white/50 border-primary/20 focus:border-primary"
                     />
                   </div>
 
                   <Button
                     type="submit"
-                    className="w-full"
+                    className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg transition-all duration-300"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (

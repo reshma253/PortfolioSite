@@ -3,29 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(210, 40%, 22%);
-  --muted: hsl(210, 40%, 96%);
+  --background: hsl(210, 40%, 98%);
+  --foreground: hsl(215, 25%, 27%);
+  --muted: hsl(210, 20%, 92%);
   --muted-foreground: hsl(215, 13%, 45%);
-  --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(210, 40%, 22%);
+  --popover: hsl(210, 40%, 98%);
+  --popover-foreground: hsl(215, 25%, 27%);
   --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(210, 40%, 22%);
-  --border: hsl(214, 32%, 91%);
-  --input: hsl(214, 32%, 91%);
-  --primary: hsl(217, 91%, 60%);
+  --card-foreground: hsl(215, 25%, 27%);
+  --border: hsl(214, 32%, 88%);
+  --input: hsl(214, 32%, 88%);
+  --primary: hsl(200, 85%, 65%);
   --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(210, 40%, 96%);
-  --secondary-foreground: hsl(222, 84%, 5%);
-  --accent: hsl(43, 96%, 56%);
-  --accent-foreground: hsl(222, 84%, 5%);
+  --secondary: hsl(210, 20%, 92%);
+  --secondary-foreground: hsl(215, 25%, 27%);
+  --accent: hsl(45, 86%, 75%);
+  --accent-foreground: hsl(215, 25%, 27%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(217, 91%, 60%);
-  --radius: 0.5rem;
+  --ring: hsl(200, 85%, 65%);
+  --radius: 0.75rem;
   --text-light: hsl(215, 25%, 27%);
   --text-dark: hsl(210, 40%, 98%);
-  --bg-light: hsl(0, 0%, 100%);
+  --bg-light: hsl(210, 40%, 98%);
   --bg-dark: hsl(222, 84%, 5%);
   --secondary-dark: hsl(215, 28%, 17%);
 }
@@ -72,7 +72,22 @@
 
 @layer components {
   .gradient-bg {
-    background: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(215, 28%, 17%) 100%);
+    background: linear-gradient(135deg, hsl(200, 85%, 65%) 0%, hsl(45, 86%, 75%) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gradient-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80') center/cover;
+    opacity: 0.1;
+    mask: linear-gradient(135deg, transparent 0%, black 50%, transparent 100%);
+    -webkit-mask: linear-gradient(135deg, transparent 0%, black 50%, transparent 100%);
   }
   
   .dark .gradient-bg {
@@ -81,17 +96,49 @@
   
   .project-card {
     transition: all 0.3s ease;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, hsl(200, 85%, 85%) 0%, hsl(45, 86%, 85%) 100%);
+    opacity: 0.05;
+    z-index: 0;
+  }
+  
+  .project-card > * {
+    position: relative;
+    z-index: 1;
   }
   
   .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
   
   .skill-bar {
-    height: 8px;
-    background: hsl(214, 32%, 91%);
-    border-radius: 4px;
+    height: 12px;
+    background: hsl(214, 32%, 88%);
+    border-radius: 6px;
     overflow: hidden;
+    position: relative;
+  }
+  
+  .skill-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, hsl(200, 85%, 95%) 50%, transparent 100%);
   }
   
   .dark .skill-bar {
@@ -100,17 +147,81 @@
   
   .skill-progress {
     height: 100%;
-    background: linear-gradient(90deg, hsl(217, 91%, 60%), hsl(43, 96%, 56%));
-    border-radius: 4px;
+    background: linear-gradient(90deg, hsl(200, 85%, 65%), hsl(45, 86%, 75%));
+    border-radius: 6px;
     transition: width 1s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      left: -50%;
+    }
+    100% {
+      left: 150%;
+    }
   }
   
   .nav-link.active {
-    color: hsl(217, 91%, 60%);
+    color: hsl(200, 85%, 55%);
+    position: relative;
+  }
+  
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, hsl(200, 85%, 65%), hsl(45, 86%, 75%));
+    border-radius: 1px;
   }
   
   .dark .nav-link.active {
-    color: hsl(43, 96%, 56%);
+    color: hsl(45, 86%, 75%);
+  }
+  
+  .masked-image {
+    mask: radial-gradient(circle at center, black 60%, transparent 100%);
+    -webkit-mask: radial-gradient(circle at center, black 60%, transparent 100%);
+  }
+  
+  .hero-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(200, 85%, 85%) 0%, transparent 25%),
+      radial-gradient(circle at 75% 75%, hsl(45, 86%, 85%) 0%, transparent 25%);
+    background-size: 100px 100px;
+    opacity: 0.3;
+  }
+  
+  .section-divider {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(200, 85%, 75%), hsl(45, 86%, 75%), transparent);
+    mask: linear-gradient(90deg, transparent 0%, black 25%, black 75%, transparent 100%);
+    -webkit-mask: linear-gradient(90deg, transparent 0%, black 25%, black 75%, transparent 100%);
   }
 }
 
