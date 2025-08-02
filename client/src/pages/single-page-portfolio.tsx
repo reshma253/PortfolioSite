@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Code, Palette, Zap, Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, ChevronDown } from "lucide-react";
+import { Code, Palette, Zap, Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, ChevronDown, Download } from "lucide-react";
 import { sendEmail } from "@/lib/emailjs";
 import { useAOS } from "@/hooks/use-aos";
 
@@ -61,12 +61,42 @@ export default function SinglePagePortfolio() {
 
   // Skills data
   const skills = [
-    { name: "JavaScript & TypeScript", percentage: 95 },
-    { name: "React & Vue.js", percentage: 90 },
-    { name: "Node.js & Express", percentage: 85 },
-    { name: "UI/UX Design", percentage: 88 },
-    { name: "Python & Django", percentage: 80 },
-    { name: "Database Management", percentage: 82 },
+    { 
+      name: "JavaScript & TypeScript", 
+      percentage: 95,
+      icon: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100",
+      description: "Modern ES6+ and TypeScript development"
+    },
+    { 
+      name: "React & Vue.js", 
+      percentage: 90,
+      icon: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100",
+      description: "Component-based frontend frameworks"
+    },
+    { 
+      name: "Node.js & Express", 
+      percentage: 85,
+      icon: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100",
+      description: "Server-side JavaScript development"
+    },
+    { 
+      name: "UI/UX Design", 
+      percentage: 88,
+      icon: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100",
+      description: "User-centered design and prototyping"
+    },
+    { 
+      name: "Python & Django", 
+      percentage: 80,
+      icon: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100",
+      description: "Backend development and data science"
+    },
+    { 
+      name: "Database Management", 
+      percentage: 82,
+      icon: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100",
+      description: "SQL and NoSQL database design"
+    },
   ];
 
   const technologies = ["JavaScript", "React", "Node.js", "Python", "UI/UX"];
@@ -294,6 +324,14 @@ export default function SinglePagePortfolio() {
                 >
                   Get In Touch
                 </Button>
+                <a
+                  href="/resume.pdf"
+                  download="Alex_Johnson_Resume.pdf"
+                  className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-md hover:bg-accent/30 transition-colors duration-200"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Download Resume
+                </a>
               </div>
               <div className="animate-bounce lg:hidden">
                 <ChevronDown 
@@ -391,39 +429,55 @@ export default function SinglePagePortfolio() {
                 open-source projects, or hiking in the great outdoors. I believe in continuous
                 learning and staying at the forefront of technology.
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {technologies.map((tech, index) => (
                   <Badge key={index} variant="secondary" className="bg-white/60 text-foreground border-0">
                     {tech}
                   </Badge>
                 ))}
               </div>
+              <a
+                href="/resume.pdf"
+                download="Alex_Johnson_Resume.pdf"
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-primary to-accent rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <Download className="w-4 h-4 mr-2" />
+                Download Full Resume
+              </a>
             </div>
           </div>
 
-          {/* Skills Section */}
+          {/* Skills Dashboard */}
           <div className="mb-16" data-aos="fade-up">
-            <h3 className="text-2xl font-semibold mb-8 text-center">Technical Skills</h3>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                {skills.slice(0, 3).map((skill, index) => (
-                  <SkillBar
-                    key={index}
-                    skill={skill.name}
-                    percentage={skill.percentage}
-                    delay={index * 200}
-                  />
-                ))}
-              </div>
-              <div>
-                {skills.slice(3).map((skill, index) => (
-                  <SkillBar
-                    key={index + 3}
-                    skill={skill.name}
-                    percentage={skill.percentage}
-                    delay={(index + 3) * 200}
-                  />
-                ))}
+            <h3 className="text-2xl font-semibold mb-8 text-center">Technical Skills Dashboard</h3>
+            <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-6 border border-primary/10">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="text-lg font-medium mb-4 text-primary">Frontend & Languages</h4>
+                  {skills.slice(0, 3).map((skill, index) => (
+                    <SkillBar
+                      key={index}
+                      skill={skill.name}
+                      percentage={skill.percentage}
+                      delay={index * 200}
+                      icon={skill.icon}
+                      description={skill.description}
+                    />
+                  ))}
+                </div>
+                <div>
+                  <h4 className="text-lg font-medium mb-4 text-primary">Backend & Design</h4>
+                  {skills.slice(3).map((skill, index) => (
+                    <SkillBar
+                      key={index + 3}
+                      skill={skill.name}
+                      percentage={skill.percentage}
+                      delay={(index + 3) * 200}
+                      icon={skill.icon}
+                      description={skill.description}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
